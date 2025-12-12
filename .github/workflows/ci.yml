@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node (optional, remove if not needed)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run build (if any)
+        run: |
+          echo "No build command needed for static files"
+          # If you had a build tool, run it here
+
+      - name: Run tests (if any)
+        run: |
+          echo "No tests configured"
+          # Add real test commands here if you have tests
