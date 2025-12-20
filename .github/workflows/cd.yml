@@ -5,7 +5,8 @@ on:
     workflows: ["CI"]
     types:
       - completed
-
+permissions:
+  contents: write
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -20,3 +21,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./  # your site files, adjust if different
+
